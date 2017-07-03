@@ -12,4 +12,19 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-PRODUCT_MAKEFILES := $(LOCAL_DIR)/choose_dora.mk
+# Bootanimation
+TARGET_BOOTANIMATION_SIZE := 1080x608
+
+# Inherit device parts
+$(call inherit-product, device/sony/dora/aosp_f8131.mk)
+
+# Override Product Name
+PRODUCT_NAME := choose_dora
+PRODUCT_MODEL := Xperia X Performance
+
+# Assert
+TARGET_OTA_ASSERT_DEVICE := F8131,dora
+
+# Inherit rom parts
+$(call inherit-product, vendor/choose-a/config/gsm.mk)
+
